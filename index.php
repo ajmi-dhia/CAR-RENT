@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    /* On injecte votre image Hyundai ici */
+    /* On injecte votre image Hyundai ici */ 
     background-image: url('https://galerie.automobile.tn/max/2024/01/porsche-911-carrera-2024-80349.webp');
     background-size: cover;
     background-position: center;

@@ -25,12 +25,15 @@ include("../includes/header.php");
             SELECT COUNT(*) as total FROM cars WHERE agence_id = $agence_id AND disponible = 1
         "))['total'];
 
-        $totalReservations = mysqli_fetch_assoc(mysqli_query($conn,"
-            SELECT COUNT(r.id) as total
-            FROM reservations r
-            JOIN cars c ON r.car_id = c.id
-            WHERE c.agence_id = $agence_id
-        "))['total'];
+        $totalReservationsQuery = mysqli_query($conn, "
+    SELECT COUNT(*) AS total
+    FROM reservations r
+    INNER JOIN cars c 
+        ON r.car_id = c.id
+    WHERE c.agence_id = '$agence_id'
+");
+
+$totalReservations = mysqli_fetch_assoc($totalReservationsQuery)['total'];
         ?>
 
         <div class="dashboard-card">
@@ -88,7 +91,7 @@ include("../includes/header.php");
 
             <!-- ACTIONS -->
             <a class="btn btn-primary"
-               href="edit_car.php?id=<?= $car['id'] ?>">
+               href="add_car.php?id=<?= $car['id'] ?>">
                 Edit
             </a>
 

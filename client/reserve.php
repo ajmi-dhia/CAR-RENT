@@ -40,7 +40,6 @@ if(isset($_POST['reserve'])){
 
         mysqli_query($conn, $sql);
 
-        mysqli_query($conn, $sql);
 
 /* =========================
    UPDATE CAR STATUS

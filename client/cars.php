@@ -29,7 +29,7 @@ include("../includes/reservation_helper.php");
 
             // fake availability check (today as default preview)
             $today = date("Y-m-d");
-            $available = isCarAvailable($conn, $car['id'], $today, $today);
+           
 
         ?>
 
@@ -48,7 +48,7 @@ include("../includes/reservation_helper.php");
             </p>
 
             <!-- AVAILABILITY -->
-            <?php if($available): ?>
+            <?php if($car['disponible'] == 1): ?>
                 <span class="badge badge-success">Available</span>
             <?php else: ?>
                 <span class="badge badge-danger">Not Available</span>
@@ -57,7 +57,7 @@ include("../includes/reservation_helper.php");
             <br><br>
 
             <!-- RESERVE BUTTON -->
-            <?php if($available): ?>
+            <?php if($car['disponible'] == 1): ?>
                 <a class="btn btn-primary"
    href="reserve.php?car_id=<?= $car['id'] ?>">
     Reserve
